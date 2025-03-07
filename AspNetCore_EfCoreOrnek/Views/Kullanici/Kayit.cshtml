@@ -1,0 +1,73 @@
+﻿@model AspNetCore_EfCoreOrnek.Models.KullaniciViewModel
+
+@{
+	ViewData["Title"] = "Kayit";
+}
+
+<h1>Kayit</h1>
+
+<h4>KullaniciViewModel</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Kayit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+			@* 
+				
+			@Html.AntiForgeryToken()  formda bir oluştulturur. ve bunu server'da doğrular... dığrulaması için action gidip...'
+			[AutoValidateAntiforgeryToken] atrbiute ekleyin...
+
+
+			*@
+
+			<div class="form-group">
+				<label asp-for="Email" class="control-label"></label>
+				<input asp-for="Email" class="form-control" />
+				<span asp-validation-for="Email" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="KullaniciAdi" class="control-label"></label>
+				<input asp-for="KullaniciAdi" class="form-control" />
+				<span asp-validation-for="KullaniciAdi" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Sifre" class="control-label"></label>
+				<input asp-for="Sifre" class="form-control" />
+				<span asp-validation-for="Sifre" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="SifreTekrar" class="control-label"></label>
+				<input asp-for="SifreTekrar" class="form-control" />
+				<span asp-validation-for="SifreTekrar" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Adi" class="control-label"></label>
+				<input asp-for="Adi" class="form-control" />
+				<span asp-validation-for="Adi" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="SoyAdi" class="control-label"></label>
+				<input asp-for="SoyAdi" class="form-control" />
+				<span asp-validation-for="SoyAdi" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Kayıt Ol" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<div>
+	<a asp-action="Index">Back to List</a>
+</div>
+
+<!--
+	Sınıfınız içieriinde validation attributeler kullanıldıysa validation server'a göndermeden clientta yapabilmek adına aşağıdaki unobtrusive validation scripti kullanılır....
+-->
+@section ValidationScripts {
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
